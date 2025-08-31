@@ -21,7 +21,7 @@ function App() {
 
     try {
       // Call the new single endpoint with all necessary info
-      const response = await axios.post('http://localhost:8000/api/process', {
+      const response = await axios.post('https://info-distill.onrender.com/api/process', {
         prompt,
         recipient_email: recipientEmail
       });
