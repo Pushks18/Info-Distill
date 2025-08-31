@@ -1,0 +1,13 @@
+# Node dependencies
+/frontend/node_modules
+/frontend/dist
+
+# Python virtual environment
+/backend/myenv
+/backend/__pycache__/
+
+# Environment variables file
+/backend/.env
+
+# macOS system files
+.DS_Store

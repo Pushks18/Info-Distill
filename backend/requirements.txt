@@ -1,0 +1,32 @@
+# Web framework
+fastapi
+uvicorn[standard]
+
+# Data handling
+pandas
+
+# Environment variables
+python-dotenv
+
+# OpenAI for summary generation
+openai>=1.3.0
+
+# Tool integration SDKs
+arcadepy
+
+# Advanced web search and content extraction
+httpx
+trafilatura
+pandas
+
+# Geographic mapping (MSA) and NLP utilities
+spacy==3.7.2
+scikit-learn
+python-dateutil
+lxml
+
+rapidfuzz
+
+transformers
+torch
+

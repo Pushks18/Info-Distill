@@ -1,0 +1,209 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f7f9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem 1rem;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.App {
+  background: white;
+  padding: 2.5rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 10px 25px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+}
+
+h1 {
+  color: #1a202c;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+p {
+  color: #718096;
+  margin-bottom: 2.5rem;
+}
+
+/* --- Form Styles --- */
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e0;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+button {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  background-color: #3182ce;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+button:hover {
+  background-color: #2b6cb0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(49, 130, 206, 0.4);
+}
+
+button:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- Status & Results --- */
+.status {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.results-container {
+  margin-top: 2.5rem;
+  text-align: left;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.5s 0.2s forwards;
+}
+
+.article-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-color: #4299e1;
+}
+
+.article-card h3 a {
+  text-decoration: none;
+  color: #3182ce;
+}
+
+.article-card h3 a:hover {
+  text-decoration: underline;
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.article-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.relevance-score {
+  background-color: #eaf4ff;
+  color: #3182ce;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.article-card {
+  position: relative;
+  padding-bottom: 4rem; /* Space for the button */
+}
+
+.article-card.selected {
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+.add-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem !important;
+  width: auto !important;
+  font-size: 0.9rem !important;
+}
+
+.report-section {
+  margin-top: 2.5rem;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 2rem;
+  background-color: #f7fafc;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.report-section h2 {
+  margin-top: 0;
+}
+
+.report-section button {
+  margin-top: 1rem;
+}
+
+.doc-link {
+  margin-top: 1rem;
+  font-weight: 500;
+}

@@ -1,0 +1,30 @@
+{
+  "grant_opportunities": [
+    "https://www.grants.gov/rss/grants.xml",
+    "https://www.nsf.gov/rss/rss_www_funding.xml",
+    "https://www.federalregister.gov/documents/search.rss?conditions%5Btype%5D%5B%5D=NOTICE&conditions%5Bterm%5D=grant"
+  ],
+  "federal_agency_news": [
+    "https://www.nsf.gov/rss/rss_www_news.xml",
+    "https://www.nih.gov/news-events/news-releases/feed.xml",
+    "https://www.commerce.gov/news/rss.xml",
+    "https://www.energy.gov/science/office-science/news/rss.xml",
+    "https://www.eda.gov/news/blogs/feed",
+    "https://www.whitehouse.gov/ostp/feed/",
+    "https://www.darpa.mil/news/rss.xml",
+    "https://www.nist.gov/news-events/news/rss.xml"
+  ],
+  "science_policy_analysis": [
+    "https://sciencebusiness.net/rss.xml",
+    "https://www.aip.org/fyi/rss.xml",
+    "https://fedtechmagazine.com/rss",
+    "https://www.insidehighered.com/news/rss/feed",
+    "https://www.aaas.org/news/rss",
+    "https://itif.org/feed"
+  ],
+  "think_tank_and_university_reports": [
+    "https://www.brookings.edu/topic/technology-innovation/feed/",
+    "https://news.mit.edu/rss/feed",
+    "https://science.house.gov/rss.xml"
+  ]
+}
