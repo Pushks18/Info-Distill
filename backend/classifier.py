@@ -1,34 +1,29 @@
-# backend/classifier.py
-
-from transformers import pipeline
+import os
+import httpx
 
 class ContentClassifier:
     def __init__(self):
-        """
-        Initializes the Zero-Shot Classification pipeline.
-        """
-        try:
-            self.classifier = pipeline(
-                "zero-shot-classification",
-                model="facebook/bart-large-mnli"
-            )
-            print("✅ Zero-shot classification model loaded successfully.")
-        except Exception as e:
-            print(f"❌ Failed to load classification model: {e}")
-            self.classifier = None
+        self.api_token = os.getenv("HF_TOKEN")
+        self.api_url = "https://api-inference.huggingface.co/models/facebook/bart-large-mnli"
+        self.headers = {"Authorization": f"Bearer {self.api_token}"}
+        print("✅ Classifier configured to use Hugging Face Inference API.")
 
     def evaluate_relevance(self, text: str, prompt: str) -> float:
-        """
-        Evaluates how relevant a piece of text is to a given prompt.
-        """
-        if not self.classifier or not text or not prompt:
+        if not self.api_token or not text or not prompt:
             return 0.0
         
+        payload = {
+            "inputs": text[:1024],
+            "parameters": {"candidate_labels": [prompt]},
+        }
+        
         try:
-            result = self.classifier(text[:1024], candidate_labels=[prompt])
+            response = httpx.post(self.api_url, headers=self.headers, json=payload, timeout=20.0)
+            response.raise_for_status()
+            result = response.json()
             score = result['scores'][0]
             print(f"📄 Evaluated article with relevance score: {score:.2f}")
             return score
         except Exception as e:
-            print(f"❌ Error during classification: {e}")
+            print(f"❌ Error during API classification: {e}")
             return 0.0
