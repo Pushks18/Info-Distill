@@ -4,6 +4,7 @@
 
 # Python virtual environment
 /backend/myenv
+/backend/venv
 /backend/__pycache__/
 
 # Environment variables file

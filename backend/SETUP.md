@@ -1,30 +1,46 @@
-# Setup Instructions for Industry Market Intelligence Dashboard
+# Backend Setup
 
-This guide walks you through the steps to install, configure, and run the project locally.
+This backend runs a FastAPI service used by the React frontend.
 
-## 🔧 Prerequisites
+## Prerequisites
 
-Ensure you have the following installed:
+- Python 3.9+
+- `pip`
 
-- Python 3.9 or above
-- pip
-- (Optional) virtualenv or venv for isolated environments
+## 1) Create and activate a virtual environment
 
-## Step 1 - Create and Activate a Virtual Environment
+```bash
 python3 -m venv venv
-source venv/bin/activate  # For Linux/macOS
+source venv/bin/activate
+# Windows: venv\Scripts\activate
+```
 
-# On Windows:
-# venv\Scripts\activate
+## 2) Install dependencies
 
-## Step 2 - Install Required Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-## Step 3 - Set Up Environment Variables
-touch .env
+## 3) Configure environment variables
 
+Create `backend/.env` with:
+
+```env
 OPENAI_API_KEY=your_openai_api_key
-## Do not share your .env file. Add .env to your .gitignore.
+ARCADE_API_KEY=your_arcade_api_key
+ARCADE_USER_ID=your_arcade_user_id
+# Optional: override model used for all LLM tasks
+OPENAI_MODEL=gpt-4o-mini
+```
 
-## Step 4 - Run the Streamlit Dashboard
-streamlit run app.py
+Notes:
+- `OPENAI_API_KEY` is required for relevance scoring and summaries.
+- `ARCADE_API_KEY` and `ARCADE_USER_ID` are required for Google Docs/Gmail integration.
+
+## 4) Run the API server
+
+```bash
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+Backend URL: `http://localhost:8000`
