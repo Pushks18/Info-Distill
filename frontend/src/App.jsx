@@ -3,6 +3,8 @@ import axios from 'axios';
 import ArticleDetail from './ArticleDetail';
 import './App.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
 function App() {
   const [prompt, setPrompt] = useState('');
   const [recipientEmail, setRecipientEmail] = useState('');
@@ -45,7 +47,7 @@ function App() {
     setStatus('Discovering and ranking articles...');
 
     try {
-      const response = await axios.post('http://localhost:8000/api/process', {
+      const response = await axios.post(`${API_URL}/api/process`, {
         prompt,
         recipient_email: ''
       });
@@ -67,7 +69,7 @@ function App() {
   const startStreaming = () => {
     setIsStreaming(true);
     setStatus('Generating newsletter brief...');
-    const eventSource = new EventSource(`http://localhost:8000/api/stream-newsletter?prompt=${encodeURIComponent(prompt)}`);
+    const eventSource = new EventSource(`${API_URL}/api/stream-newsletter?prompt=${encodeURIComponent(prompt)}`);
     eventSource.onmessage = (event) => {
       setStreamedText(prev => prev + event.data);
     };
@@ -107,7 +109,7 @@ function App() {
     setStatus('Generating and sending report...');
 
     try {
-      const response = await axios.post('http://localhost:8000/api/create-doc', {
+      const response = await axios.post(`${API_URL}/api/create-doc`, {
         selected_articles: selectedArticles,
         recipient_email: recipientEmail
       });

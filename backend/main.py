@@ -38,6 +38,10 @@ class CreateDocRequest(BaseModel):
     selected_articles: list[dict]  # List of article objects
     recipient_email: str
 
+@app.get("/")
+async def health_check():
+    return {"status": "ok"}
+
 # --- API Endpoint ---
 @app.post("/api/process")
 async def process_request_endpoint(request: ProcessRequest, background_tasks: BackgroundTasks):

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
 function ArticleDetail({ article, onBack }) {
   const [detail, setDetail] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -10,7 +12,7 @@ function ArticleDetail({ article, onBack }) {
     setIsLoading(true);
     setError('');
     try {
-      const response = await axios.post('http://localhost:8000/api/article-detail', article);
+      const response = await axios.post(`${API_URL}/api/article-detail`, article);
       if (response.data.status === 'success') {
         setDetail(response.data);
       } else {
